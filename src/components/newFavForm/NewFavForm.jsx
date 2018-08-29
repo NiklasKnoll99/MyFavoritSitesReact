@@ -1,13 +1,5 @@
 import React from 'react';
-
-const InputStyle = {
-    width: '100%',
-    height: '34px'
-};
-
-const Center = {
-    textAlign: 'center'
-};
+import NewFavFormStyle from '../newFavForm/NewFavFormStyle.css'
 
 const NewFavForm = (args) => {
     return (
@@ -15,13 +7,13 @@ const NewFavForm = (args) => {
             <div className="accordion__head">Neuen Favoriten hinzufügen</div>
             <div className="accordion__body">
                 <div className="accordion__content">
-                    <input className="input" placeholder="Name" style={InputStyle}/><br/>
-                    <input className="input" placeholder="Facebookseite" style={InputStyle}/><br/>
-                    <input className="input" placeholder="Adresse" style={InputStyle}/><br/>
-                    <input className="input" placeholder="E-Mail" style={InputStyle}/><br/>
-                    <textarea className="input" placeholder="Kommentar" autogrow="true" style={InputStyle}></textarea><br/><br/>
+                    <input className="input newFavInput" placeholder="Name"/><br/>
+                    <input className="input newFavInput" placeholder="Facebookseite"/><br/>
+                    <input className="input newFavInput" placeholder="Adresse"/><br/>
+                    <input className="input newFavInput" placeholder="E-Mail"/><br/>
+                    <textarea className="input newFavInput" placeholder="Kommentar" autogrow="true"></textarea><br/><br/>
 
-                    <div style={Center}><button className="button">Hinzufügen</button></div>
+                    <div className="center"><button className="button">Hinzufügen</button></div>
                     <br/>
                 </div>
             </div>
