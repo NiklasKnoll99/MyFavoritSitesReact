@@ -4,6 +4,7 @@ import { Mode } from 'chayns-components/lib';
 import PersonFinder from './personFinder/PersonFinderWrapper';
 
 import NewFavForm from './newFavForm/NewFavForm';
+import ListItem from './listItem/ListItem';
 
 export default class Content extends React.Component {
     constructor(props) {
@@ -60,6 +61,7 @@ export default class Content extends React.Component {
                 </Mode>
 
                 <NewFavForm/>
+                <ListItem heading="Überschrift" desc="Beschreibung" url="https://www.google.de"/>
             </div>
         );
     }

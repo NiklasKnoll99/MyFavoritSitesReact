@@ -1,0 +1,34 @@
+.item:hover
+{
+    background-color: #003E56;
+    cursor: pointer;
+}
+
+.itemContent
+{
+    padding: 5px 0px 5px 10px;
+}
+
+.itemIcon
+{
+    width: 45px;
+    height: 45px;
+    background-color: red;
+}
+
+.textContent
+{
+    padding-left: 10px;
+}
+
+.inlineBlock
+{
+    display: inline-block;
+}
+
+.line
+{
+    width: 100%;
+    height: 1px;
+    background-color: #335360;
+}
