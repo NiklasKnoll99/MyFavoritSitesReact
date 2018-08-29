@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Mode } from 'chayns-components/lib';
-import UserList from './user/UserList';
 import PersonFinder from './personFinder/PersonFinderWrapper';
 
 export default class Content extends React.Component {
@@ -57,10 +56,6 @@ export default class Content extends React.Component {
                         addUser={this.addUser}// Provide the addUser function to the person finder as a prop
                     />
                 </Mode>
-                <UserList
-                    user={users} // Provide the user list array to the UserList element as a prop
-                    removeUser={this.removeUser}
-                />
             </div>
         );
     }
