@@ -3,6 +3,8 @@ import React from 'react';
 import { Mode } from 'chayns-components/lib';
 import PersonFinder from './personFinder/PersonFinderWrapper';
 
+import NewFavForm from './newFavForm/NewFavForm';
+
 export default class Content extends React.Component {
     constructor(props) {
         super(props);
@@ -56,6 +58,8 @@ export default class Content extends React.Component {
                         addUser={this.addUser}// Provide the addUser function to the person finder as a prop
                     />
                 </Mode>
+
+                <NewFavForm/>
             </div>
         );
     }
