@@ -1,12 +1,23 @@
 import React from 'react';
+import { Input } from 'chayns-components';
 
-const SearchBox = (args) => {
-    return (
-        <div>
-            <input className="input" placeholder={args.placeholder}/>
-            <label style={{marginLeft: '-25px'}}><i className="fa fa-search"></i></label>
-        </div>
-    );
-};
+export default class SearchBox extends React.Component { 
+    timeout = null;
 
-export default SearchBox;
+    render(props) {
+        return (
+            <div>
+                <Input placeholder={this.props.placeholder} onChange={(value) => {this.onChange(value, this.props.onSearch)}}/>
+                <label style={{marginLeft: '-25px'}}><i className="fa fa-search"></i></label>
+            </div>
+        );
+    };
+
+    onChange(value, onSearch) {
+        clearTimeout(this.timeout);
+
+        this.timeout = setTimeout(() => {
+            onSearch(value);
+        }, 500);
+    };
+}
