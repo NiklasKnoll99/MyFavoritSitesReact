@@ -4,12 +4,12 @@ import '../listItem/ListItemStyle.css';
 const ListItem = (args) => {
     return (
         <div className="item">
-            <a href={args.url} target="_blank">
+            <a href={`https://chayns.net/${args.siteId}`} target="_blank">
                 <div className="itemContent">
-                    <div className="itemIcon inlineBlock" style={{width: '45px', height: '45px', backgroundSize: 'cover', backgroundImage: 'url(' + args.iconUrl + ')'}}></div>
+                    <div className="itemIcon inlineBlock" style={{backgroundSize: 'cover', backgroundImage: 'url(https://sub60.tobit.com/l/' + args.locationId + ')'}}></div>
                     <div className="textContent inlineBlock">
-                        <h3 className="heading">{args.headline}</h3>
-                        <p className="description">{args.desc}</p>
+                        <h3 className="heading">{args.appstoreName}</h3>
+                        <p className="description">{args.siteId}</p>
                     </div>
                 </div>
                 <div className="line"></div>
