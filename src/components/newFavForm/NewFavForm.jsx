@@ -1,7 +1,8 @@
 import React from 'react';
-import NewFavFormStyle from '../newFavForm/NewFavFormStyle.css'
+import '../newFavForm/NewFavFormStyle.css'
+import '../style/Style.css';
 
-const NewFavForm = (args) => {
+const NewFavForm = () => {
     return (
         <div className="accordion">
             <div className="accordion__head">Neuen Favoriten hinzufügen</div>

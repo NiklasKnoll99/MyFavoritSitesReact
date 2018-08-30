@@ -1,5 +1,5 @@
 import React from 'react';
-import ListItemStyle from '../listItem/ListItemStyle.css';
+import '../listItem/ListItemStyle.css';
 
 const ListItem = (args) => {
     return (
@@ -8,8 +8,8 @@ const ListItem = (args) => {
                 <div className="itemContent">
                     <div className="itemIcon inlineBlock"></div>
                     <div className="textContent inlineBlock">
-                        <h3>{args.heading}</h3>
-                        <p>{args.desc}</p>
+                        <h3 className="heading">{args.headline}</h3>
+                        <p className="description">{args.desc}</p>
                     </div>
                 </div>
                 <div className="line"></div>

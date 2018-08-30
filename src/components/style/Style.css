@@ -1,0 +1,14 @@
+.center
+{
+    text-align: center;
+}
+
+.inlineBlock
+{
+    display: inline-block;
+}
+
+.clearBoth
+{
+    clear: both;
+}
