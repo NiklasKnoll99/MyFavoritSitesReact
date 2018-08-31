@@ -19,6 +19,7 @@
 
 .textContent
 {
+    width: calc(100% - 50px);
     padding-left: 8px;
     margin-top: 3px;
 }
@@ -32,6 +33,9 @@
 
 .heading
 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     line-height: 1em;
 }
 

@@ -7,13 +7,14 @@ import '../style/Style.css';
 import '../display/DisplayStyle.css';
 
 export default class Display extends React.Component {
+    skip = 0;
+    take = 10;
+    searchStr = '';
+    
     constructor() {
         super();
         this.state = {
             jsonData: [],
-            skip: 0,
-            take: 10,
-            searchStr: ''
         }
     }
 
@@ -26,15 +27,7 @@ export default class Display extends React.Component {
                 </div>
                 <div className="accordion__body clearBoth">
                     <div className="siteDisplay">
-                    {this.state.jsonData.map(s =>
-                        <ListItem
-                            key={s.siteId}
-                            appstoreName={s.appstoreName}
-                            siteId={s.siteId}
-                            locationId={s.locationId}
-                            facebookId={s.facebookId}
-                        />
-                    )}
+                    {this.createListItems()}
                     </div>
 
                     <div className="loadMore"><LoadMoreLink onClick={() => this.onLoadMore()} text="Mehr anzeigen"/></div>
@@ -43,22 +36,51 @@ export default class Display extends React.Component {
         );
     };
 
+    createListItems() {
+        if (this.state.jsonData != []) {
+            return this.state.jsonData.map(s =>
+                <ListItem
+                    key={s.siteId}
+                    appstoreName={s.appstoreName}
+                    siteId={s.siteId}
+                    locationId={s.locationId}
+                    facebookId={s.facebookId}
+                />
+            )
+        }
+    };
+
+    onEmptySearch() {
+        this.setState({
+            jsonData: [],
+        });
+    };
+
     onJsonLoad(jsonObjects, searchStr, append) {
         this.setState({
             jsonData: append ? this.state.jsonData.concat(jsonObjects) : jsonObjects,
-            searchStr,
-            skip: append ? this.state.skip + jsonObjects.length : jsonObjects.length
         });
     };
 
     onSearch(searchStr) {
-        fetch('https://chayns1.tobit.com/TappApi/Site/SlitteApp?SearchString=' + searchStr + '&Skip=' + this.state.skip + '&Take=' + this.state.take, 
-        (json) => this.onJsonLoad(json, searchStr, false));
+        if (searchStr.length > 0) {
+            this.searchStr = searchStr;
+            fetch('https://chayns1.tobit.com/TappApi/Site/SlitteApp?SearchString=' + this.searchStr + '&Skip=' + this.skip + '&Take=' + this.take, 
+            (json) => this.onJsonLoad(json, searchStr, false));
+        }
+
+        else
+            this.onEmptySearch();
     };
 
     onLoadMore() {
-        console.log('load more');
-        fetch('https://chayns1.tobit.com/TappApi/Site/SlitteApp?SearchString=' + this.state.searchStr + '&Skip=' + this.state.skip + '&Take=' + this.state.take,
-        (json) => this.onJsonLoad(json, this.state.searchStr, true));
+        if (this.searchStr.length > 0) {
+            this.skip += 10;
+            fetch('https://chayns1.tobit.com/TappApi/Site/SlitteApp?SearchString=' + this.searchStr + '&Skip=' + this.skip + '&Take=' + this.take,
+            (json) => this.onJsonLoad(json, this.searchStr, true));
+        }
+
+        else
+            this.onEmptySearch();
     };
 }

@@ -8,7 +8,7 @@ const ListItem = (args) => {
                 <div className="itemContent">
                     <div className="itemIcon inlineBlock" style={{backgroundSize: 'cover', backgroundImage: 'url(https://sub60.tobit.com/l/' + args.locationId + ')'}}></div>
                     <div className="textContent inlineBlock">
-                        <h3 className="heading">{args.appstoreName}</h3>
+                        <h4 className="heading">{args.appstoreName}</h4>
                         <p className="description">{args.siteId}</p>
                     </div>
                 </div>
